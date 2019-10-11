@@ -28,6 +28,9 @@ func (u *Uploader) Run() {
 		u.MqttClient.Initialize()
 	}
 
+	if err := u.MqttClient.SendTelemetry(); err != nil {
+		u.logError("Error sending telemetry to MQTT")
+	}
 }
 
 // Close shuts down the Uploader
