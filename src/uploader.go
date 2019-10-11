@@ -27,6 +27,7 @@ func (u *Uploader) Run() {
 		u.MqttClient.Srv = u.Srv
 		u.MqttClient.Initialize()
 	}
+
 }
 
 // Close shuts down the Uploader
