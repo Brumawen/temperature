@@ -42,12 +42,12 @@ func (u *Uploader) Close() {
 
 // logInfo logs an information message to the logger
 func (u *Uploader) logInfo(v ...interface{}) {
-	a := fmt.Sprint(v)
-	logger.Info("Uploader: [Inf] ", a[1:len(a)-1])
+	a := fmt.Sprint(v...)
+	logger.Info("Uploader: [Inf] ", a)
 }
 
 // logError logs an error message to the logger
 func (u *Uploader) logError(v ...interface{}) {
-	a := fmt.Sprint(v)
-	logger.Error("Uploader [Err] ", a[1:len(a)-1])
+	a := fmt.Sprint(v...)
+	logger.Error("Uploader [Err] ", a)
 }

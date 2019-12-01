@@ -20,7 +20,7 @@ func (r *RoomService) UpdateTelemetry() error {
 
 	out, err := exec.Command("python", "dht11.py").CombinedOutput()
 	if err != nil {
-		r.logError("Failed to read the DHT11 device", err.Error)
+		r.logError("Failed to read the DHT11 device", err.Error())
 		return err
 	}
 
@@ -46,19 +46,19 @@ func (r *RoomService) UpdateTelemetry() error {
 // logDebug logs a debug message to the logger
 func (r *RoomService) logDebug(v ...interface{}) {
 	if r.Srv.VerboseLogging {
-		a := fmt.Sprint(v)
-		logger.Info("RoomService: [Dbg] ", a[1:len(a)-1])
+		a := fmt.Sprint(v...)
+		logger.Info("RoomService: [Dbg] ", a)
 	}
 }
 
 // logInfo logs an information message to the logger
 func (r *RoomService) logInfo(v ...interface{}) {
-	a := fmt.Sprint(v)
-	logger.Info("RoomService: [Inf] ", a[1:len(a)-1])
+	a := fmt.Sprint(v...)
+	logger.Info("RoomService: [Inf] ", a)
 }
 
 // logError logs an error message to the logger
 func (r *RoomService) logError(v ...interface{}) {
-	a := fmt.Sprint(v)
-	logger.Error("RoomService [Err] ", a[1:len(a)-1])
+	a := fmt.Sprint(v...)
+	logger.Error("RoomService [Err] ", a)
 }

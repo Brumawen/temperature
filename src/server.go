@@ -218,19 +218,19 @@ func (s *Server) RegisterService() {
 // logDebug logs a debug message to the logger
 func (s *Server) logDebug(v ...interface{}) {
 	if s.VerboseLogging {
-		a := fmt.Sprint(v)
-		logger.Info("Server: [Dbg] ", a[1:len(a)-1])
+		a := fmt.Sprint(v...)
+		logger.Info("Server: [Dbg] ", a)
 	}
 }
 
 // logInfo logs an information message to the logger
 func (s *Server) logInfo(v ...interface{}) {
-	a := fmt.Sprint(v)
-	logger.Info("Server: [Inf] ", a[1:len(a)-1])
+	a := fmt.Sprint(v...)
+	logger.Info("Server: [Inf] ", a)
 }
 
 // logError logs an error message to the logger
 func (s *Server) logError(v ...interface{}) {
-	a := fmt.Sprint(v)
-	logger.Error("Server [Err] ", a[1:len(a)-1])
+	a := fmt.Sprint(v...)
+	logger.Error("Server [Err] ", a)
 }
