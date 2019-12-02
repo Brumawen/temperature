@@ -88,7 +88,7 @@ func (m *Mqtt) SendTelemetry() error {
 	}
 
 	// Temperature
-	m.logInfo("Publishing temperature")
+	m.logInfo("Publishing temperature: ", fmt.Sprintf("%.1f", m.Srv.Room.Temperature))
 	token := m.client.Publish(fmt.Sprintf("home/%s/temperature", m.Srv.Config.RoomName), byte(0), true, fmt.Sprintf("%.1f", m.Srv.Room.Temperature))
 	if token.Wait() && token.Error() != nil {
 		m.logError("Error sending temperature state to MQTT Broker.", token.Error())
@@ -96,7 +96,7 @@ func (m *Mqtt) SendTelemetry() error {
 	}
 
 	// Temperature
-	m.logInfo("Publishing humidity")
+	m.logInfo("Publishing humidity: ", fmt.Sprintf("%.1f", m.Srv.Room.Humidity))
 	token = m.client.Publish(fmt.Sprintf("home/%s/humidity", m.Srv.Config.RoomName), byte(0), true, fmt.Sprintf("%.1f", m.Srv.Room.Humidity))
 	if token.Wait() && token.Error() != nil {
 		m.logError("Error sending humidity state to MQTT Broker.", token.Error())
